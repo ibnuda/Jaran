@@ -13,7 +13,11 @@ type Something =
 let u = """ { "lastuser": "Administrator", "lastactive": 636372711333291008 } """
 
 let init() =
-    Browser.console.debug (sprintf "this : %A" <| ofJson<Something> u)
+    // Browser.console.debug (sprintf "this : %A" <| ofJson<Something> u)
+    let a : Something = ofJson u
+    // Browser.console.debug (sprintf "this : %A" <| ofJson u)
+    Browser.console.debug (sprintf "lastuser : %s" a.lastuser)
+    Browser.console.debug (sprintf "lastuser : %A" a.lastactive)
     let canvas = Browser.document.getElementsByTagName_canvas().[0]
     canvas.width <- 1000.
     canvas.height <- 800.
